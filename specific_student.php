@@ -45,40 +45,7 @@ if (isset($_SESSION['logged_in'])) {
                 <button type="button" class="open-modal btn btn-info btn-sm" data-modal-id="edit_info">Edit Info</button>
             </div>
 
-            <div class="custom-modal my_modal" id="edit_info">
-                <div class="my_popup">
-                    <h3>Edit Info</h3>
-                    <form action="edit_info.php" method="POST">
-                        <input type="hidden" value="<?php echo $table_number ?>" name="table_number">
-                        <input type="hidden" value="<?php echo $key ?>" name="key">
-                        <input type="hidden" value="<?php echo $student->identity[0]; ?>" name="seat_no">
-                        <?php if (isset($student->identity[5])) { ?>
-                            <input type="hidden" value="<?php echo $student->identity[5]; ?>" name="gr_no">
-                        <?php } ?>
-                        <div class="d-flex flex-wrap">
-                            <div class="form-group col-6">
-                                <label for="">First Name</label>
-                                <input type="text" name="first_name" class="form-control" value="<?php echo $student->identity[2] ?>">
-                            </div>
-                            <div class="form-group col-6">
-                                <label for="">Father's Name</label>
-                                <input type="text" name="fathers_name" class="form-control" value="<?php echo $student->identity[3] ?>">
-                            </div>
-                            <div class="form-group col-6">
-                                <label for="">Last Name</label>
-                                <input type="text" name="last_name" class="form-control" value="<?php echo $student->identity[1] ?>">
-                            </div>
-                            <div class="form-group col-6">
-                                <label for="">Mother's Name</label>
-                                <input type="text" name="mothers_name" class="form-control" value="<?php echo isset($student->identity[4]) ? $student->identity[4] : ''  ?>">
-                            </div>
-                            <div class="w-100 px-3">
-                                <button class="btn btn-primary btn-block" type="submit">Edit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+
 
             <div class="row mt-5">
                 <div class="col-3"><b><?php echo "Seat No: " . $student->identity[0] ?></b></div>
@@ -157,6 +124,40 @@ if (isset($_SESSION['logged_in'])) {
                         </div>
                     </div>
                 <?php } ?>
+            </div>
+        </div>
+        <div class="custom-modal my_modal" id="edit_info">
+            <div class="my_popup">
+                <h3>Edit Info</h3>
+                <form action="edit_info.php" method="POST">
+                    <input type="hidden" value="<?php echo $table_number ?>" name="table_number">
+                    <input type="hidden" value="<?php echo $key ?>" name="key">
+                    <input type="hidden" value="<?php echo $student->identity[0]; ?>" name="seat_no">
+                    <?php if (isset($student->identity[5])) { ?>
+                        <input type="hidden" value="<?php echo $student->identity[5]; ?>" name="gr_no">
+                    <?php } ?>
+                    <div class="d-flex flex-wrap">
+                        <div class="form-group col-6">
+                            <label for="">First Name</label>
+                            <input type="text" name="first_name" class="form-control" value="<?php echo $student->identity[2] ?>">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="">Father's Name</label>
+                            <input type="text" name="fathers_name" class="form-control" value="<?php echo $student->identity[3] ?>">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="">Last Name</label>
+                            <input type="text" name="last_name" class="form-control" value="<?php echo $student->identity[1] ?>">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="">Mother's Name</label>
+                            <input type="text" name="mothers_name" class="form-control" value="<?php echo isset($student->identity[4]) ? $student->identity[4] : ''  ?>">
+                        </div>
+                        <div class="w-100 px-3">
+                            <button class="btn btn-primary btn-block" type="submit">Edit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </body>
